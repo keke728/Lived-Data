@@ -272,6 +272,7 @@ main {
 }
 
 .hero-mark {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -281,6 +282,8 @@ main {
   width: min(31vw, 430px);
   height: auto;
   display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-copy-reference {
@@ -829,6 +832,29 @@ main {
   transform: none;
 }
 
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-delay-1 {
+  transition-delay: 180ms;
+}
+
+.news-shell.scroll-reveal {
+  transform: translateY(22px);
+  transition-delay: 120ms;
+}
+
 @media (max-width: 1100px) {
   .hero,
   .about-grid,
@@ -949,6 +975,13 @@ main {
     animation: none;
   }
 
+  .scroll-reveal,
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .button,
   .site-nav a::after,
   .contact-panel a::after {
@@ -958,4 +991,5 @@ main {
   .wordmark span:nth-child(2) {
     animation: none;
   }
+
 }
