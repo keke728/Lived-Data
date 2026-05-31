@@ -5,6 +5,8 @@ const updateHeaderState = () => {
 };
 
 const revealElements = document.querySelectorAll(".scroll-reveal");
+const perspectiveSection = document.querySelector(".research-perspective");
+const perspectiveTrigger = document.querySelector(".research-perspective-trigger");
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -24,6 +26,13 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => revealObserver.observe(element));
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
+}
+
+if (perspectiveSection && perspectiveTrigger) {
+  perspectiveTrigger.addEventListener("click", () => {
+    const isFolded = perspectiveSection.classList.toggle("is-folded");
+    perspectiveTrigger.setAttribute("aria-expanded", String(!isFolded));
+  });
 }
 
 updateHeaderState();
