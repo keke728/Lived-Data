@@ -1,0 +1,16 @@
+<svg width="220" height="170" viewBox="0 0 220 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M18 20C62 2 118 21 131 63C137 84 129 101 111 106C91 112 74 96 78 80C82 63 111 59 135 69C167 82 182 111 185 149"
+    stroke="white"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M151 123L185 149L212 112"
+    stroke="white"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
