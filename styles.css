@@ -1464,12 +1464,14 @@ main {
 .research-question-list {
   position: relative;
   z-index: 1;
+  padding-top: 30px;
 }
 
 .research-question-list p {
-  padding: 14px 16px 14px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.02);
+  padding: 0 0 0 28px;
+  border: 0;
+  background: transparent;
+  white-space: nowrap;
 }
 
 .research-question-list p::before,
@@ -1477,7 +1479,7 @@ main {
   content: "";
   position: absolute;
   left: 12px;
-  top: 1.15em;
+  top: 0.72em;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -1920,6 +1922,14 @@ main {
     padding: 20px 18px 22px;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .research-question-list p {
+    white-space: normal;
+  }
+
+  .research-question-list {
+    padding-top: 0;
   }
 
   .research-methods {
