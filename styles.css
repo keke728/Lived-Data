@@ -237,8 +237,8 @@ main {
   height: 1px;
   background: currentColor;
   transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 180ms ease;
+  transform-origin: left center;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-nav a:hover,
@@ -341,7 +341,7 @@ main {
   margin: 0 0 34px;
   max-width: none;
   font-family: "IM Fell English", Georgia, serif;
-  font-size: clamp(2.5rem, 4.2vw, 3.7rem);
+  font-size: clamp(2.35rem, 3.7vw, 3.45rem);
   line-height: 1.02;
   letter-spacing: -0.035em;
   font-weight: 500;
@@ -359,7 +359,7 @@ main {
   margin: 0 0 2px;
   max-width: 55ch;
   font-family: "Didact Gothic", "Avenir Next", "Segoe UI", sans-serif;
-  font-size: clamp(1.08rem, 1.55vw, 1.3rem);
+  font-size: clamp(1.06rem, 1.34vw, 1.22rem);
   line-height: 1.5;
   color: #ffffff;
   text-align: left;
@@ -387,7 +387,7 @@ main {
 .hero-text-wide {
   max-width: 55ch;
   font-family: "Didact Gothic", "Avenir Next", "Segoe UI", sans-serif;
-  font-size: clamp(1.08rem, 1.55vw, 1.3rem);
+  font-size: clamp(1.06rem, 1.34vw, 1.22rem);
   line-height: 1.5;
   color: #ffffff;
   text-align: justify;
@@ -398,7 +398,7 @@ main {
   margin-top: 24px;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1800px) {
   .hero {
     max-width: 1480px;
     gap: 84px;
@@ -406,13 +406,13 @@ main {
   }
 
   .hero h1 {
-    font-size: 4.15rem;
+    font-size: 3.95rem;
   }
 
   .hero-intro-line,
   .hero-text-wide {
     max-width: 58ch;
-    font-size: 1.42rem;
+    font-size: 1.34rem;
     line-height: 1.55;
   }
 
@@ -586,7 +586,8 @@ main {
   transition:
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 280ms ease,
-    background-color 280ms ease;
+    background-color 280ms ease,
+    box-shadow 280ms ease;
 }
 
 .news-media img {
@@ -625,13 +626,17 @@ main {
   text-decoration-color: rgba(255, 255, 255, 0.72);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.24em;
-  transition: color 180ms ease, text-decoration-color 180ms ease;
+  transition:
+    color 220ms ease,
+    text-decoration-color 220ms ease,
+    text-underline-offset 220ms ease;
 }
 
 .news-copy h3 a:hover,
 .news-copy h3 a:focus-visible {
   color: var(--accent);
   text-decoration-color: currentColor;
+  text-underline-offset: 0.3em;
 }
 
 .news-badge {
@@ -672,14 +677,17 @@ main {
   border: 1px solid var(--line);
   font-weight: 500;
   transition:
-    transform 180ms ease,
-    background 180ms ease,
-    border-color 180ms ease;
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .button:hover,
 .button:focus-visible {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
 }
 
 .button-primary {
@@ -1068,7 +1076,7 @@ main {
 .join-card:focus-within {
   border-color: #f1bc42;
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
-  transform: translateY(-6px);
+  transform: translateY(-4px) rotate(-0.18deg);
 }
 
 .join-card:hover .join-card-kicker,
@@ -1177,13 +1185,15 @@ main {
   transition:
     border-color 180ms ease,
     background 180ms ease,
-    transform 180ms ease;
+    color 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .research-perspective-trigger:hover,
 .research-perspective-trigger:focus-visible {
   border-left-color: rgba(241, 188, 66, 0.92);
-  transform: translateX(2px);
+  color: #f1bc42;
+  transform: translateX(4px);
 }
 
 .research-perspective h2 {
@@ -1316,6 +1326,7 @@ main {
   transition:
     border-color 220ms ease,
     box-shadow 220ms ease,
+    background 220ms ease,
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1374,7 +1385,7 @@ main {
 .research-theme-card:hover,
 .research-theme-card:focus-within {
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .research-theme-card:nth-child(1):hover,
@@ -1589,13 +1600,12 @@ main {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px 20px;
-  padding-top: 12px;
 }
 
 .person-tile {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 262px 2.4rem 1.5rem auto;
+  grid-template-rows: 210px 2.4rem 1.5rem auto;
   row-gap: 5px;
   align-items: start;
   padding: 0 0 20px;
@@ -1605,7 +1615,7 @@ main {
   position: relative;
   width: 100%;
   max-width: 210px;
-  height: 262px;
+  height: 210px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.82);
@@ -1678,43 +1688,42 @@ main {
   transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.person-tile:hover .person-portrait,
-.person-tile:focus-within .person-portrait {
+.person-tile:hover .person-portrait {
   transform: translateY(-4px) rotate(-1.5deg);
   border-color: #ffffff;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
 }
 
-.person-tile:hover .person-portrait::before,
-.person-tile:focus-within .person-portrait::before {
+.person-tile:hover .person-portrait::before {
   transform: scale(0.97);
   opacity: 0.92;
 }
 
-.person-tile:hover .person-portrait::after,
-.person-tile:focus-within .person-portrait::after {
+.person-tile:hover .person-portrait::after {
   transform: translate(-6px, 7px) scale(1.08);
 }
 
-.person-tile:hover .person-portrait-mark,
-.person-tile:focus-within .person-portrait-mark {
+.person-tile:hover .person-portrait-mark {
   transform: rotate(0deg) scale(1.04);
 }
 
-.person-tile:hover .person-portrait-image-base,
-.person-tile:focus-within .person-portrait-image-base {
+.person-tile:hover .person-portrait-swap .person-portrait-image-base {
   opacity: 0;
   transform: scale(1.02);
 }
 
-.person-tile:hover .person-portrait-image-hover,
-.person-tile:focus-within .person-portrait-image-hover {
+.person-tile:hover .person-portrait-swap .person-portrait-image-hover {
   opacity: 1;
   transform: scale(1.08);
 }
 
 .person-portrait-keke {
   background: #090909;
+}
+
+.person-portrait-keke .person-portrait-image-base {
+  object-position: center 18%;
+  transform: scale(1);
 }
 
 .person-portrait-diego {
@@ -1727,6 +1736,32 @@ main {
   background:
     radial-gradient(circle at 22% 76%, rgba(226, 24, 51, 0.16), transparent 24%),
     linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(241, 188, 66, 0.14));
+}
+
+.person-portrait-isabella .person-portrait-image-base {
+  object-position: center 22%;
+  transform: scale(1.08);
+}
+
+.person-portrait-isabella .person-portrait-image-hover {
+  object-position: center 18%;
+  transform: scale(1.18);
+}
+
+.person-portrait-nony {
+  background:
+    radial-gradient(circle at 74% 22%, rgba(241, 188, 66, 0.12), transparent 22%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.person-portrait-nony .person-portrait-image-base {
+  object-position: 58% 16%;
+  transform: scale(1.18);
+}
+
+.person-portrait-nony .person-portrait-image-hover {
+  object-position: 54% 18%;
+  transform: scale(1.14);
 }
 
 .person-portrait-placeholder {
@@ -1761,13 +1796,17 @@ main {
   text-decoration-color: rgba(255, 255, 255, 0.72);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.24em;
-  transition: color 180ms ease, text-decoration-color 180ms ease;
+  transition:
+    color 220ms ease,
+    text-decoration-color 220ms ease,
+    text-underline-offset 220ms ease;
 }
 
 .person-tile-copy h2 a:hover,
 .person-tile-copy h2 a:focus-visible {
   color: var(--accent);
   text-decoration-color: currentColor;
+  text-underline-offset: 0.3em;
 }
 
 .person-role {
@@ -1939,6 +1978,7 @@ main {
     gap: 18px;
   }
 
+
   .research-theme-card {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1972,13 +2012,13 @@ main {
   }
 
   .person-tile {
-    grid-template-rows: 240px 2.2rem 1.35rem auto;
+    grid-template-rows: 220px 2.2rem 1.35rem auto;
     padding-bottom: 20px;
   }
 
   .person-portrait {
     max-width: 220px;
-    height: 240px;
+    height: 220px;
   }
 
   .brand-lockup {
