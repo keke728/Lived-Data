@@ -398,6 +398,29 @@ main {
   margin-top: 24px;
 }
 
+@media (min-width: 1600px) {
+  .hero {
+    max-width: 1480px;
+    gap: 84px;
+    padding-top: 88px;
+  }
+
+  .hero h1 {
+    font-size: 4.15rem;
+  }
+
+  .hero-intro-line,
+  .hero-text-wide {
+    max-width: 58ch;
+    font-size: 1.42rem;
+    line-height: 1.55;
+  }
+
+  .hero-logo {
+    width: min(29vw, 470px);
+  }
+}
+
 .text-highlight {
   position: relative;
   display: inline;
@@ -1922,6 +1945,10 @@ main {
     padding: 20px 18px 22px;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .research-theme-card:nth-child(3) {
+    grid-template-columns: 1fr;
   }
 
   .research-question-list p {
