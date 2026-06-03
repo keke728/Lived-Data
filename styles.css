@@ -1748,6 +1748,16 @@ main {
     linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(217, 81, 80, 0.13));
 }
 
+.person-portrait-diego .person-portrait-image-base {
+  object-position: center 18%;
+  transform: scale(1.08);
+}
+
+.person-portrait-diego .person-portrait-image-hover {
+  object-position: center 18%;
+  transform: scale(1.12);
+}
+
 .person-portrait-isabella {
   background:
     radial-gradient(circle at 22% 76%, rgba(226, 24, 51, 0.16), transparent 24%),
