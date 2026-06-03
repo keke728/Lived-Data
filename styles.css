@@ -1559,7 +1559,7 @@ main {
 .people-main {
   max-width: 1380px;
   margin: 0 auto;
-  padding: 150px clamp(20px, 4vw, 48px) 88px;
+  padding: 150px clamp(20px, 4vw, 48px) 310px;
 }
 
 .people-hero {
@@ -1611,6 +1611,15 @@ main {
   padding: 0 0 20px;
 }
 
+.people-directory > .person-tile:nth-child(-n + 4) {
+  margin-top: 20px;
+}
+
+.person-tile-arran {
+  grid-column: 1;
+  margin-top: 150px;
+}
+
 .person-portrait {
   position: relative;
   width: 100%;
@@ -1618,6 +1627,7 @@ main {
   height: 210px;
   display: grid;
   place-items: center;
+  justify-self: center;
   border: 1px solid rgba(255, 255, 255, 0.82);
   background:
     radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.09), transparent 24%),
@@ -1688,31 +1698,37 @@ main {
   transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.person-tile:hover .person-portrait {
+.person-portrait:hover,
+.person-portrait:focus-visible {
   transform: translateY(-4px) rotate(-1.5deg);
   border-color: #ffffff;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
 }
 
-.person-tile:hover .person-portrait::before {
+.person-portrait:hover::before,
+.person-portrait:focus-visible::before {
   transform: scale(0.97);
   opacity: 0.92;
 }
 
-.person-tile:hover .person-portrait::after {
+.person-portrait:hover::after,
+.person-portrait:focus-visible::after {
   transform: translate(-6px, 7px) scale(1.08);
 }
 
-.person-tile:hover .person-portrait-mark {
+.person-portrait:hover .person-portrait-mark,
+.person-portrait:focus-visible .person-portrait-mark {
   transform: rotate(0deg) scale(1.04);
 }
 
-.person-tile:hover .person-portrait-swap .person-portrait-image-base {
+.person-portrait-swap:hover .person-portrait-image-base,
+.person-portrait-swap:focus-visible .person-portrait-image-base {
   opacity: 0;
   transform: scale(1.02);
 }
 
-.person-tile:hover .person-portrait-swap .person-portrait-image-hover {
+.person-portrait-swap:hover .person-portrait-image-hover,
+.person-portrait-swap:focus-visible .person-portrait-image-hover {
   opacity: 1;
   transform: scale(1.08);
 }
@@ -1764,30 +1780,46 @@ main {
   transform: scale(1.14);
 }
 
+.person-portrait-arran {
+  background:
+    radial-gradient(circle at 72% 24%, rgba(226, 24, 51, 0.14), transparent 22%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.person-portrait-arran .person-portrait-image-base {
+  object-position: center 18%;
+  transform: scale(1.06);
+}
+
 .person-portrait-placeholder {
   background:
     linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
 }
 
 .person-tile-copy {
-  display: grid;
-  align-content: start;
-  grid-template-rows: subgrid;
-  grid-row: 2 / span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
   width: 100%;
   max-width: 210px;
-  justify-self: start;
+  justify-self: center;
+  text-align: left;
 }
 
 .person-tile-copy h2 {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   margin: 0;
+  min-height: 2.4rem;
+  width: 100%;
   color: #ffffff;
   font-family: "Didact Gothic", "Avenir Next", "Segoe UI", sans-serif;
   font-size: 1.16rem;
   font-weight: 400;
   line-height: 1.2;
+  text-align: center;
 }
 
 .person-tile-copy h2 a {
@@ -1811,18 +1843,107 @@ main {
 
 .person-role {
   margin: 0;
+  min-height: 1.5rem;
+  width: 100%;
   color: var(--accent);
   font-size: 0.82rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .person-keywords {
   margin: 0;
   color: #ffffff;
   font-size: clamp(0.98rem, 1.15vw, 1.05rem);
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: center;
   text-wrap: pretty;
+}
+
+.person-keyword-row {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(4.8rem, auto) auto;
+  width: 100%;
+}
+
+.person-bio-details {
+  position: relative;
+  display: inline-block;
+  justify-self: center;
+  margin-top: 4px;
+  margin-left: 0;
+}
+
+.person-keyword-row .person-keywords {
+  display: block;
+}
+
+.person-bio-details summary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  line-height: 1.35;
+  list-style: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(255, 255, 255, 0.34);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition:
+    color 220ms ease,
+    text-decoration-color 220ms ease,
+    text-underline-offset 220ms ease;
+}
+
+.person-bio-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.person-bio-details summary:hover,
+.person-bio-details summary:focus-visible {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.24em;
+}
+
+.person-bio-details[open] summary {
+  color: var(--accent);
+}
+
+.person-bio-details p {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 10;
+  width: 280px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: rgba(18, 18, 18, 0.96);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+  color: #ffffff;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.person-tile-bio-right .person-bio-details p {
+  left: 0;
+}
+
+.person-tile-bio-left .person-bio-details p {
+  right: 0;
+  left: auto;
+}
+
+.person-tile-bio-down .person-bio-details p {
+  left: 0;
 }
 
 @media (max-width: 1100px) {
@@ -1940,7 +2061,7 @@ main {
 
   .people-main {
     padding-top: 154px;
-    padding-bottom: 64px;
+    padding-bottom: 202px;
   }
 
   .research-main {
@@ -2019,6 +2140,24 @@ main {
   .person-portrait {
     max-width: 220px;
     height: 220px;
+  }
+
+  .person-bio-details p {
+    position: static;
+    width: auto;
+    margin-top: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: clamp(0.98rem, 1.15vw, 1.05rem);
+    line-height: 1.6;
+  }
+
+  .person-tile-arran {
+    grid-column: auto;
+    margin-top: 0;
   }
 
   .brand-lockup {
