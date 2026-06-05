@@ -1883,7 +1883,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   width: 100%;
 }
 
@@ -1965,6 +1965,38 @@ main {
   left: 0;
 }
 
+@media (max-width: 1360px) {
+  .people-directory {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 96px 24px;
+  }
+
+  .person-bio-details p {
+    position: static;
+    width: auto;
+    margin-top: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: clamp(0.98rem, 1.15vw, 1.05rem);
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 980px) {
+  .people-directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 72px 22px;
+  }
+
+  .person-tile {
+    grid-template-rows: auto;
+    row-gap: 6px;
+  }
+}
+
 @media (max-width: 1100px) {
   .hero,
   .about-grid,
@@ -1997,10 +2029,6 @@ main {
   .news-heading,
   .news-item {
     text-align: left;
-  }
-
-  .people-directory {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .research-themes {
@@ -2115,7 +2143,7 @@ main {
 
   .people-directory {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 44px;
   }
 
 
@@ -2152,13 +2180,42 @@ main {
   }
 
   .person-tile {
-    grid-template-rows: 220px 2.2rem 1.35rem auto;
-    padding-bottom: 20px;
+    grid-template-rows: auto;
+    row-gap: 4px;
+    padding-bottom: 12px;
   }
 
   .person-portrait {
-    max-width: 220px;
-    height: 220px;
+    max-width: 196px;
+    height: 196px;
+  }
+
+  .person-tile-copy {
+    max-width: 196px;
+    gap: 4px;
+  }
+
+  .person-tile-copy h2 {
+    min-height: 2.05rem;
+    font-size: 1.08rem;
+  }
+
+  .person-role {
+    min-height: 1.25rem;
+    font-size: 0.76rem;
+  }
+
+  .person-keywords {
+    font-size: 0.96rem;
+    line-height: 1.45;
+  }
+
+  .person-keyword-row {
+    gap: 6px;
+  }
+
+  .person-bio-details summary {
+    font-size: 0.84rem;
   }
 
   .person-bio-details p {
