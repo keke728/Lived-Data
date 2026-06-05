@@ -1599,7 +1599,7 @@ main {
 .people-directory {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px 20px;
+  gap: 172px 20px;
 }
 
 .person-tile {
@@ -1609,15 +1609,6 @@ main {
   row-gap: 5px;
   align-items: start;
   padding: 0 0 20px;
-}
-
-.people-directory > .person-tile:nth-child(-n + 4) {
-  margin-top: 20px;
-}
-
-.person-tile-arran {
-  grid-column: 1;
-  margin-top: 150px;
 }
 
 .person-portrait {
@@ -1796,6 +1787,22 @@ main {
     linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
 }
 
+.person-portrait-trisha {
+  background:
+    radial-gradient(circle at 76% 22%, rgba(241, 188, 66, 0.14), transparent 22%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.person-portrait-trisha .person-portrait-image-base {
+  object-position: center 18%;
+  transform: scale(1.08);
+}
+
+.person-portrait-trisha .person-portrait-image-hover {
+  object-position: center 20%;
+  transform: scale(1.12);
+}
+
 .person-portrait-arran .person-portrait-image-base {
   object-position: center 18%;
   transform: scale(1.06);
@@ -1873,8 +1880,10 @@ main {
 
 .person-keyword-row {
   position: relative;
-  display: grid;
-  grid-template-rows: minmax(4.8rem, auto) auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   width: 100%;
 }
 
@@ -1882,7 +1891,7 @@ main {
   position: relative;
   display: inline-block;
   justify-self: center;
-  margin-top: 4px;
+  margin-top: 0;
   margin-left: 0;
 }
 
@@ -2163,11 +2172,6 @@ main {
     box-shadow: none;
     font-size: clamp(0.98rem, 1.15vw, 1.05rem);
     line-height: 1.6;
-  }
-
-  .person-tile-arran {
-    grid-column: auto;
-    margin-top: 0;
   }
 
   .brand-lockup {
