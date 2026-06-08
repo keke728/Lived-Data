@@ -7,6 +7,7 @@ const updateHeaderState = () => {
 const revealElements = document.querySelectorAll(".scroll-reveal");
 const perspectiveSection = document.querySelector(".research-perspective");
 const perspectiveTrigger = document.querySelector(".research-perspective-trigger");
+const personBioDetails = document.querySelectorAll(".person-bio-details");
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -32,6 +33,41 @@ if (perspectiveSection && perspectiveTrigger) {
   perspectiveTrigger.addEventListener("click", () => {
     const isFolded = perspectiveSection.classList.toggle("is-folded");
     perspectiveTrigger.setAttribute("aria-expanded", String(!isFolded));
+  });
+}
+
+if (personBioDetails.length) {
+  const closeAllPersonBios = () => {
+    personBioDetails.forEach((detail) => {
+      detail.open = false;
+    });
+  };
+
+  personBioDetails.forEach((detail) => {
+    detail.addEventListener("toggle", () => {
+      if (!detail.open) return;
+      personBioDetails.forEach((otherDetail) => {
+        if (otherDetail !== detail) {
+          otherDetail.open = false;
+        }
+      });
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickedInsideBio = [...personBioDetails].some((detail) =>
+      detail.contains(event.target)
+    );
+
+    if (!clickedInsideBio) {
+      closeAllPersonBios();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeAllPersonBios();
+    }
   });
 }
 
