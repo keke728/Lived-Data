@@ -1,15 +1,16 @@
-document.body.classList.remove("is-loading", "is-ready", "is-complete");
+document.body.classList.remove("is-loading", "is-ready", "is-complete", "is-transitioning");
 
 const updateHeaderState = () => {
   document.body.classList.toggle("is-scrolled", window.scrollY > 24);
 };
 
+const isHomePage = document.body.classList.contains("home-page");
 const revealElements = document.querySelectorAll(".scroll-reveal");
 const perspectiveSection = document.querySelector(".research-perspective");
 const perspectiveTrigger = document.querySelector(".research-perspective-trigger");
 const personBioDetails = document.querySelectorAll(".person-bio-details");
 
-if ("IntersectionObserver" in window) {
+if (isHomePage && "IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
@@ -25,7 +26,7 @@ if ("IntersectionObserver" in window) {
   );
 
   revealElements.forEach((element) => revealObserver.observe(element));
-} else {
+} else if (isHomePage) {
   revealElements.forEach((element) => element.classList.add("is-visible"));
 }
 
