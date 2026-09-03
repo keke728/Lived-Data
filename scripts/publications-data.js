@@ -1,0 +1,62 @@
+/*
+ * Publication content lives separately from rendering behavior so new work can
+ * be added without navigating the filter, carousel, and card implementation.
+ */
+window.LDC_PUBLICATIONS = Object.freeze([
+  {
+    id: "bringing-data-to-life",
+    title: "Bringing Data to Life: Designing Data Characters for the Emotional&nbsp;Self",
+    summary: "A poster exploring how customizable data characters can help people represent and reflect on affective experiences.",
+    authors: ["Diego Abarcar Calugay", "Isabella Amador", "Keke Wu"],
+    labMembers: ["Diego Abarcar Calugay", "Isabella Amador", "Keke Wu"],
+    venue: "VIS",
+    year: 2026,
+    type: "Poster",
+    theme: "Affective",
+    links: [
+      { type: "poster", url: "assets/bringing-data-to-life-vis-2026-poster.pdf" },
+      { type: "paper", url: "https://arxiv.org/abs/2608.28780" },
+    ],
+    thumbnail: "assets/bringing-data-to-life-thumbnail-black-cropped.png",
+    featuredImageScale: "0.82",
+    archiveImageScale: "1",
+    archiveThumbnailFit: "cover",
+  },
+  {
+    id: "cognitive-accessibility-reveals",
+    title: "What Cognitive Accessibility Reveals About Data Visualization",
+    summary: "A paper that positions cognitive accessibility as a critical lens for reconsidering visualization theory and practice.",
+    authors: ["Keke Wu", "Jinjuan Heidi Feng", "Jonathan Lazar"],
+    labMembers: ["Keke Wu"],
+    venue: "VIS",
+    year: 2026,
+    type: "Workshop Paper",
+    theme: "",
+    links: [
+      { type: "paper", url: "https://arxiv.org/pdf/2608.17039" },
+      { type: "web", url: "https://arxiv.org/html/2608.17039" },
+      { type: "video", url: "" },
+    ],
+    thumbnail: "assets/cognitive-accessibility-lenses-black.png",
+    thumbnailFit: "contain-dark",
+    featuredImageScale: "0.96",
+    archiveImageScale: "1.0",
+  },
+  {
+    id: "charting-the-immersive-self",
+    title: "Charting the Immersive Self: A Scoping Review of Immersive Personal Visualisation",
+    summary: "A scoping review mapping immersive personal visualisation and its potential to reshape how people access, understand, and live with personal data.",
+    authors: ["Thomas Davidson", "Zihan Dai", "Yalong Yang", "Emily Wall", "Keke Wu"],
+    labMembers: ["Keke Wu"],
+    featuredAuthorBreakBefore: "Yalong Yang",
+    venue: "VIS",
+    year: 2026,
+    type: "Full Paper",
+    theme: "Embodied",
+    links: [{ type: "paper", url: "assets/charting-the-immersive-self-vis-2026.pdf" }],
+    thumbnail: "assets/charting-the-immersive-self-feature-v4.png",
+    thumbnailFit: "contain-dark",
+    featuredImageScale: "0.82",
+    archiveImageScale: "1.0",
+  },
+]);

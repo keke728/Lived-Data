@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280">
+  <g fill="#e3e3e3" opacity=".13">
+    <circle cx="9" cy="18" r="1"/><circle cx="37" cy="11" r=".7"/><circle cx="62" cy="29" r="1.1"/>
+    <circle cx="92" cy="7" r=".6"/><circle cx="118" cy="39" r="1"/><circle cx="143" cy="18" r=".8"/>
+    <circle cx="181" cy="32" r=".9"/><circle cx="211" cy="9" r=".6"/><circle cx="252" cy="23" r="1"/>
+    <circle cx="23" cy="78" r=".8"/><circle cx="54" cy="103" r="1"/><circle cx="85" cy="72" r=".6"/>
+    <circle cx="128" cy="93" r="1.2"/><circle cx="158" cy="64" r=".8"/><circle cx="194" cy="88" r=".6"/>
+    <circle cx="233" cy="71" r="1"/><circle cx="268" cy="104" r=".8"/><circle cx="16" cy="143" r=".9"/>
+    <circle cx="47" cy="170" r=".6"/><circle cx="77" cy="137" r="1"/><circle cx="107" cy="159" r=".7"/>
+    <circle cx="139" cy="127" r=".9"/><circle cx="171" cy="155" r="1.1"/><circle cx="206" cy="134" r=".6"/>
+    <circle cx="244" cy="165" r="1"/><circle cx="268" cy="139" r=".7"/><circle cx="11" cy="219" r="1"/>
+    <circle cx="40" cy="247" r=".8"/><circle cx="71" cy="207" r=".6"/><circle cx="102" cy="235" r="1"/>
+    <circle cx="136" cy="204" r=".8"/><circle cx="167" cy="249" r="1"/><circle cx="199" cy="215" r=".6"/>
+    <circle cx="228" cy="245" r="1.1"/><circle cx="261" cy="221" r=".8"/><circle cx="272" cy="272" r=".7"/>
+  </g>
+  <g fill="#8f8f8f" opacity=".18">
+    <rect x="28" y="45" width="1" height="2"/><rect x="74" y="51" width="2" height="1"/>
+    <rect x="151" y="50" width="1" height="2"/><rect x="223" y="43" width="2" height="1"/>
+    <rect x="6" y="110" width="2" height="1"/><rect x="103" y="117" width="1" height="2"/>
+    <rect x="178" y="109" width="2" height="1"/><rect x="251" y="122" width="1" height="2"/>
+    <rect x="28" y="190" width="1" height="2"/><rect x="91" y="184" width="2" height="1"/>
+    <rect x="146" y="189" width="1" height="2"/><rect x="219" y="197" width="2" height="1"/>
+    <rect x="55" y="269" width="2" height="1"/><rect x="186" y="270" width="1" height="2"/>
+  </g>
+  <g fill="none" stroke="#c6c6c6" stroke-linecap="round" opacity=".1">
+    <path d="M14 58h3M112 66h2M201 59h3M51 123h3M221 143h2M17 180h3M119 177h2M246 193h3M25 264h3"/>
+  </g>
+</svg>

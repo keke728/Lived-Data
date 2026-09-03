@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publications | Lived Data Collective</title>
+    <meta
+      name="description"
+      content="Publications and scholarly work from the Lived Data Collective."
+    />
+    <link rel="icon" type="image/png" href="ldc.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Didact+Gothic&family=IM+Fell+English:ital@0;1&family=Playwrite+GB+J:wght@100..400&family=Shippori+Mincho:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="publications-page">
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand-lockup">
+          <a class="wordmark" href="index.html" aria-label="Lived Data Collective home">
+            <span>Lived</span>
+            <span>Data</span>
+            <span>Collective</span>
+          </a>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="people.html">People</a>
+          <a href="research.html">Research</a>
+          <a href="publications.html" aria-current="page">Publications</a>
+          <a href="join-us.html">Join Us</a>
+        </nav>
+      </header>
+
+      <main class="publications-main">
+        <section class="publications-hero" aria-labelledby="publications-heading">
+          <h1 id="publications-heading">Publications</h1>
+          <p class="publications-intro">
+            Papers, experiments, and conversations exploring data as
+            experience.
+          </p>
+        </section>
+
+        <section class="publication-archive" aria-label="Publications archive">
+          <section class="publication-feature" aria-labelledby="featured-work-heading">
+            <div class="publication-feature-heading-row">
+              <h2 id="featured-work-heading" class="publication-section-heading">Featured Work</h2>
+              <div class="publication-feature-controls">
+                <button class="publication-carousel-dot" type="button" aria-label="Show featured work 1"></button>
+                <button class="publication-carousel-dot" type="button" aria-label="Show featured work 2"></button>
+                <button class="publication-carousel-dot" type="button" aria-label="Show featured work 3"></button>
+                <p id="featured-position" class="publication-feature-position sr-only" aria-live="polite"></p>
+              </div>
+            </div>
+            <div id="featured-publication"></div>
+          </section>
+
+          <section class="publication-collection" aria-labelledby="all-work-heading">
+            <h2 id="all-work-heading" class="publication-section-heading">All Work</h2>
+            <div id="publication-filters" class="publication-filter-bar" aria-label="Filter publications">
+              <div class="publication-filter-control" data-field="type">
+                <button id="filter-type" class="publication-filter-trigger" type="button" aria-expanded="false" aria-controls="filter-type-menu">Type</button>
+                <div id="filter-type-menu" class="publication-filter-menu" role="group" aria-labelledby="filter-type"></div>
+              </div>
+              <div class="publication-filter-control" data-field="venue">
+                <button id="filter-venue" class="publication-filter-trigger" type="button" aria-expanded="false" aria-controls="filter-venue-menu">Venue</button>
+                <div id="filter-venue-menu" class="publication-filter-menu" role="group" aria-labelledby="filter-venue"></div>
+              </div>
+              <div class="publication-filter-control" data-field="year">
+                <button id="filter-year" class="publication-filter-trigger" type="button" aria-expanded="false" aria-controls="filter-year-menu">Year</button>
+                <div id="filter-year-menu" class="publication-filter-menu" role="group" aria-labelledby="filter-year"></div>
+              </div>
+              <div class="publication-filter-control" data-field="theme">
+                <button id="filter-theme" class="publication-filter-trigger" type="button" aria-expanded="false" aria-controls="filter-theme-menu">Theme</button>
+                <div id="filter-theme-menu" class="publication-filter-menu" role="group" aria-labelledby="filter-theme"></div>
+              </div>
+              <button id="publication-filter-reset" class="publication-filter-reset" type="button">Clear filters</button>
+            </div>
+            <div id="publication-grid" class="publication-grid" aria-label="Accepted publications"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="scripts/shared.js"></script>
+    <script src="scripts/publications-data.js"></script>
+    <script src="scripts/publications.js"></script>
+  </body>
+</html>
