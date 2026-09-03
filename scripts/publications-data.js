@@ -15,7 +15,7 @@ window.LDC_PUBLICATIONS = Object.freeze([
     theme: "Affective",
     links: [
       { type: "poster", url: "assets/bringing-data-to-life-vis-2026-poster.pdf" },
-      { type: "paper", url: "https://arxiv.org/abs/2608.28780" },
+      { type: "paper", url: "https://arxiv.org/pdf/2608.28780" },
     ],
     thumbnail: "assets/bringing-data-to-life-thumbnail-black-cropped.png",
     featuredImageScale: "0.82",

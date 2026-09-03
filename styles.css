@@ -715,7 +715,9 @@ main {
 }
 
 .news-archive-link-wrap {
-  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
 }
 
 .news-archive-link {
