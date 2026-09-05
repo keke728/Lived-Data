@@ -507,7 +507,7 @@ main {
 
 .hero-scroll-cue:hover img,
 .hero-scroll-cue:focus-visible img {
-  opacity: 1;
+  opacity: 0.55;
 }
 
 .news-section {
@@ -597,7 +597,7 @@ main {
   padding: 0;
   position: relative;
   overflow: hidden;
-  border: 1px solid #ffffff;
+  border: 1px solid #393939;
   background: rgba(255, 255, 255, 0.03);
   transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -670,7 +670,7 @@ main {
   border: 1px solid rgba(226, 24, 51, 0.5);
   border-radius: 999px;
   color: var(--accent);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   vertical-align: middle;
@@ -751,7 +751,7 @@ main {
 @keyframes archive-arrow-pulse {
   0%,
   100% {
-    opacity: 0.55;
+  opacity: 1;
     transform: translateX(0);
   }
 
@@ -1248,7 +1248,7 @@ main {
 .join-card-kicker {
   margin: 0;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -2512,49 +2512,52 @@ main {
 .people-directory {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 172px 20px;
+  gap: 116px 48px;
 }
 
 .person-tile {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 210px 2.4rem 1.5rem auto;
-  row-gap: 5px;
+  grid-template-rows: 200px auto;
+  row-gap: 14px;
   align-items: start;
-  padding: 0 0 20px;
+  min-width: 0;
+  padding: 0;
+  position: relative;
 }
 
 .person-portrait {
   position: relative;
   width: 100%;
-  max-width: 210px;
-  height: 210px;
+  max-width: 200px;
+  height: 200px;
   display: grid;
   place-items: center;
   justify-self: center;
-  border: 0;
-  background:
-    radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.09), transparent 24%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-  overflow: hidden;
-  box-shadow: none;
+  border: 1px solid #474747;
+  border-radius: 43% 57% 50% 50% / 48% 43% 57% 52%;
+  background: #101010;
+  isolation: isolate;
+  overflow: visible;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.28);
   transition:
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 220ms ease,
-    box-shadow 280ms ease;
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 360ms ease;
 }
 
 .person-portrait-image {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
+  border-radius: inherit;
   transition:
-    opacity 280ms ease,
-    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 420ms ease,
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .person-portrait-image-base {
@@ -2569,26 +2572,34 @@ main {
 
 .person-portrait::before,
 .person-portrait::after {
-  content: "";
   position: absolute;
   pointer-events: none;
   transition:
-    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 220ms ease;
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease;
 }
 
 .person-portrait::before {
-  content: none;
+  content: "";
+  z-index: 0;
+  inset: -7px 8px 8px -7px;
+  border: 1px solid #474747;
+  border-radius: 56% 44% 47% 53% / 49% 57% 43% 51%;
+  opacity: 0.9;
+  transform: rotate(var(--contour-rotate, -2deg));
 }
 
 .person-portrait::after {
-  width: 54px;
-  height: 54px;
-  right: -12px;
-  top: -12px;
-  border-radius: 50%;
-  background: rgba(226, 24, 51, 0.9);
-  opacity: 0.85;
+  content: "";
+  z-index: 2;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    transparent 38%,
+    rgba(0, 0, 0, 0.2)
+  );
 }
 
 .person-portrait-mark {
@@ -2604,52 +2615,78 @@ main {
 
 .person-portrait:hover,
 .person-portrait:focus-visible {
-  transform: translateY(-4px) rotate(-1.5deg);
-  border-color: #ffffff;
-  box-shadow: none;
+  transform: translateY(-2px);
+  border-color: #474747;
 }
 
 .person-portrait:hover::before,
 .person-portrait:focus-visible::before {
-  transform: scale(0.97);
-  opacity: 0.92;
+  transform: translate(-1px, 1px) rotate(var(--contour-rotate, -2deg));
+  opacity: 0.82;
+}
+
+/* Each portrait gets a related, lightly irregular contour rather than a repeated frame. */
+.person-tile:nth-child(2) .person-portrait::before {
+  --contour-rotate: 3deg;
+  inset: -5px -8px 9px 7px;
+  border-radius: 44% 56% 54% 46% / 57% 43% 57% 43%;
+}
+
+.person-tile:nth-child(3) .person-portrait::before {
+  --contour-rotate: -4deg;
+  inset: 8px 7px -6px -8px;
+  border-radius: 59% 41% 45% 55% / 44% 55% 45% 56%;
+}
+
+.person-tile:nth-child(4) .person-portrait::before {
+  --contour-rotate: 2deg;
+  inset: -8px 6px 7px -5px;
+  border-radius: 47% 53% 58% 42% / 56% 45% 55% 44%;
+}
+
+.person-tile:nth-child(5) .person-portrait::before {
+  --contour-rotate: -3deg;
+  inset: 6px -7px -8px 7px;
+  border-radius: 54% 46% 43% 57% / 46% 56% 44% 54%;
+}
+
+.person-tile:nth-child(6) .person-portrait::before {
+  --contour-rotate: 4deg;
+  inset: -6px 9px 6px -7px;
+  border-radius: 42% 58% 52% 48% / 55% 44% 56% 45%;
+}
+
+.person-tile:nth-child(7) .person-portrait::before {
+  --contour-rotate: -1deg;
+  inset: 7px -5px -7px 8px;
+  border-radius: 57% 43% 49% 51% / 43% 57% 43% 57%;
 }
 
 .person-portrait:hover::after,
 .person-portrait:focus-visible::after {
-  transform: translate(-6px, 7px) scale(1.08);
+  opacity: 0.82;
 }
 
 .person-portrait:hover .person-portrait-mark,
 .person-portrait:focus-visible .person-portrait-mark {
-  transform: rotate(0deg) scale(1.04);
+  transform: rotate(-4deg);
 }
 
 .person-portrait-swap:hover .person-portrait-image-base,
 .person-portrait-swap:focus-visible .person-portrait-image-base {
-  opacity: 0;
-  transform: scale(1.02);
+  opacity: 0.08;
+  transform: scale(1.01);
 }
 
 .person-portrait-swap:hover .person-portrait-image-hover,
 .person-portrait-swap:focus-visible .person-portrait-image-hover {
-  opacity: 1;
-  transform: scale(1.08);
-}
-
-.person-portrait-keke {
-  background: #090909;
+  opacity: 0.92;
+  transform: scale(1.02);
 }
 
 .person-portrait-keke .person-portrait-image-base {
   object-position: center 18%;
   transform: scale(1.15);
-}
-
-.person-portrait-diego {
-  background:
-    radial-gradient(circle at 75% 26%, rgba(241, 188, 66, 0.18), transparent 21%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(217, 81, 80, 0.13));
 }
 
 .person-portrait-diego .person-portrait-image-base {
@@ -2662,12 +2699,6 @@ main {
   transform: scale(1.12);
 }
 
-.person-portrait-isabella {
-  background:
-    radial-gradient(circle at 22% 76%, rgba(226, 24, 51, 0.16), transparent 24%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(241, 188, 66, 0.14));
-}
-
 .person-portrait-isabella .person-portrait-image-base {
   object-position: center 22%;
   transform: scale(1.08);
@@ -2676,12 +2707,6 @@ main {
 .person-portrait-isabella .person-portrait-image-hover {
   object-position: center 18%;
   transform: scale(1.18);
-}
-
-.person-portrait-nony {
-  background:
-    radial-gradient(circle at 74% 22%, rgba(241, 188, 66, 0.12), transparent 22%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
 }
 
 .person-portrait-nony .person-portrait-image-base {
@@ -2694,18 +2719,6 @@ main {
   transform: scale(1.14);
 }
 
-.person-portrait-arran {
-  background:
-    radial-gradient(circle at 72% 24%, rgba(226, 24, 51, 0.14), transparent 22%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-}
-
-.person-portrait-trisha {
-  background:
-    radial-gradient(circle at 76% 22%, rgba(241, 188, 66, 0.14), transparent 22%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-}
-
 .person-portrait-trisha .person-portrait-image-base {
   object-position: center 18%;
   transform: scale(1.08);
@@ -2714,10 +2727,6 @@ main {
 .person-portrait-trisha .person-portrait-image-hover {
   object-position: center 20%;
   transform: scale(1.12);
-}
-
-.person-portrait-maggie {
-  background: #646168;
 }
 
 .person-portrait-maggie .person-portrait-image-base {
@@ -2735,18 +2744,20 @@ main {
   transform: scale(1.06);
 }
 
-.person-portrait-placeholder {
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+/* One crop and silhouette keeps the roster cohesive despite varied source photos. */
+.person-portrait .person-portrait-image-base,
+.person-portrait .person-portrait-image-hover {
+  object-position: center;
+  transform: scale(1);
 }
 
 .person-tile-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 7px;
   width: 100%;
-  max-width: 210px;
+  max-width: 280px;
   justify-self: center;
   text-align: left;
 }
@@ -2756,11 +2767,11 @@ main {
   align-items: flex-start;
   justify-content: center;
   margin: 0;
-  min-height: 2.4rem;
+  min-height: 2.5rem;
   width: 100%;
   color: #ffffff;
   font-family: "Didact Gothic", "Avenir Next", "Segoe UI", sans-serif;
-  font-size: 1.16rem;
+  font-size: 1.08rem;
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
@@ -2787,11 +2798,11 @@ main {
 
 .person-role {
   margin: 0;
-  min-height: 1.5rem;
+  min-height: 1.15rem;
   width: 100%;
   color: var(--accent);
   font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
 }
@@ -2807,12 +2818,17 @@ main {
 }
 
 .person-keywords {
+  align-self: stretch;
+  width: 100%;
   margin: 0;
-  color: #ffffff;
-  font-size: clamp(0.98rem, 1.15vw, 1.05rem);
-  line-height: 1.5;
+  min-height: 1.15rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.88rem;
+  letter-spacing: 0;
+  line-height: 1.45;
   text-align: center;
   text-wrap: pretty;
+  white-space: nowrap;
 }
 
 .person-keyword-row {
@@ -2824,12 +2840,18 @@ main {
   width: 100%;
 }
 
+.person-bio-row {
+  width: 100%;
+  margin-top: 2px;
+  text-align: right;
+}
+
 .person-bio-details {
-  position: relative;
-  display: inline-block;
-  justify-self: center;
-  margin-top: 0;
-  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  margin: 0;
 }
 
 .person-keyword-row .person-keywords {
@@ -2840,8 +2862,8 @@ main {
   display: inline-flex;
   align-items: center;
   padding: 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.84rem;
   line-height: 1.35;
   list-style: none;
   cursor: pointer;
@@ -2872,21 +2894,33 @@ main {
 }
 
 .person-bio-details p {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  z-index: 10;
-  width: 280px;
-  margin: 0;
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  background: rgba(18, 18, 18, 0.96);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
-  color: #ffffff;
-  font-size: 0.98rem;
+  align-self: stretch;
+  position: static;
+  width: auto;
+  margin: 15px 0 0;
+  padding: 14px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.89rem;
   line-height: 1.55;
   text-wrap: pretty;
+}
+
+.person-bio-affiliation {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.person-bio-affiliation {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
 }
 
 .person-tile-bio-right .person-bio-details p {
@@ -2905,20 +2939,21 @@ main {
 @media (max-width: 1360px) {
   .people-directory {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 96px 24px;
+    gap: 104px 44px;
   }
 
   .person-bio-details p {
     position: static;
     width: auto;
-    margin-top: 10px;
-    padding: 0;
+    margin-top: 15px;
+    padding: 14px 0 0;
     border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    font-size: clamp(0.98rem, 1.15vw, 1.05rem);
-    line-height: 1.6;
+    font-size: 0.89rem;
+    line-height: 1.55;
   }
 }
 
@@ -2957,12 +2992,12 @@ main {
 
   .people-directory {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 72px 22px;
+    gap: 92px 42px;
   }
 
   .person-tile {
-    grid-template-rows: auto;
-    row-gap: 6px;
+    grid-template-rows: 200px auto;
+    row-gap: 14px;
   }
 }
 
@@ -3151,7 +3186,7 @@ main {
   }
 
   .publication-grid .publication-card-authors {
-    font-size: 0.76rem;
+    font-size: 0.8rem;
   }
 
 
@@ -3169,7 +3204,7 @@ main {
 
   .people-directory {
     grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 76px;
   }
 
 
@@ -3206,33 +3241,32 @@ main {
   }
 
   .person-tile {
-    grid-template-rows: auto;
-    row-gap: 4px;
-    padding-bottom: 12px;
+    grid-template-rows: 185px auto;
+    row-gap: 12px;
+    padding: 0;
   }
 
   .person-portrait {
-    max-width: 196px;
-    height: 196px;
+    max-width: 185px;
+    height: 185px;
   }
 
   .person-tile-copy {
-    max-width: 196px;
-    gap: 4px;
+    max-width: 280px;
+    gap: 7px;
   }
 
   .person-tile-copy h2 {
-    min-height: 2.05rem;
     font-size: 1.08rem;
   }
 
   .person-role {
-    min-height: 1.25rem;
-    font-size: 0.76rem;
+    font-size: 0.8rem;
   }
 
   .person-keywords {
-    font-size: 0.96rem;
+    min-height: 1.1rem;
+    font-size: 0.84rem;
     line-height: 1.45;
   }
 
@@ -3247,14 +3281,15 @@ main {
   .person-bio-details p {
     position: static;
     width: auto;
-    margin-top: 10px;
-    padding: 0;
+    margin-top: 14px;
+    padding: 12px 0 0;
     border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    font-size: clamp(0.98rem, 1.15vw, 1.05rem);
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   .brand-lockup {
@@ -3427,4 +3462,106 @@ main {
     animation: none;
   }
 
+}
+
+/* Research interests reveal the longer profile without adding another card control. */
+.person-tile-copy {
+  position: relative;
+}
+
+.person-keyword-row {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.person-keyword-row .person-keywords {
+  display: inline;
+  width: auto;
+  min-height: 0;
+  white-space: normal;
+}
+
+.person-bio-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin: 0 0 0 6px;
+  padding: 0;
+  border: 1px solid #474747;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.68);
+  font: 400 0.95rem/1 "Didact Gothic", "Avenir Next", sans-serif;
+  cursor: pointer;
+  vertical-align: middle;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.person-bio-trigger:hover,
+.person-bio-trigger:focus-visible,
+.person-tile-copy.is-bio-open .person-bio-trigger {
+  border-color: rgba(255, 255, 255, 0.76);
+  color: #ffffff;
+}
+
+.person-tile-copy.is-bio-open .person-bio-trigger {
+  transform: rotate(45deg);
+}
+
+.person-bio-row {
+  position: absolute;
+  z-index: 12;
+  top: 100%;
+  left: 50%;
+  width: min(340px, calc(100vw - 32px));
+  margin: 0;
+  padding-top: 8px;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition:
+    opacity 180ms ease,
+    visibility 180ms step-end;
+}
+
+.person-bio-details {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.person-bio-details p {
+  width: auto;
+  margin: 0;
+  padding: 15px 16px;
+  border: 1px solid #393939;
+  border-radius: 13px 16px 14px 15px;
+  background: rgba(16, 16, 16, 0.98);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.38);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.person-tile-copy.is-bio-open .person-bio-row,
+.person-bio-row:hover {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .person-bio-trigger,
+  .person-bio-row {
+    transition: none;
+  }
 }
